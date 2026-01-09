@@ -1,0 +1,129 @@
+/* =========================
+   Base
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* =========================
+   Intro
+========================= */
+
+.intro {
+  max-width: 480px;
+}
+
+.portrait {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.name {
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.bio {
+  margin: 0 0 1.25rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* =========================
+   Links
+========================= */
+
+.links a {
+  margin-right: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.links a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+
+/* =========================
+   Shows
+========================= */
+
+.shows {
+  max-width: 320px;
+}
+
+.shows-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.shows-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shows-list li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* Mobile-only divider between intro and shows */
+@media (max-width: 899px) {
+  .shows {
+    border-top: 1px solid #eee;
+    padding-top: 1.25rem;
+  }
+}
+
+
+/* =========================
+   Desktop
+========================= */
+
+@media (min-width: 900px) {
+  .page {
+    height: 100vh;
+    padding: 0;
+    grid-template-columns: 1fr 320px;
+  }
+
+  .intro {
+    align-self: center;
+    justify-self: center;
+    padding: 2.5rem;
+  }
+
+  .shows {
+    padding: 2.5rem 2.5rem 2.5rem 0;
+  }
+}
