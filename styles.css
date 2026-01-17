@@ -97,6 +97,22 @@ body {
   font-size: 0.95rem;
 }
 
+.show {
+  margin-bottom: 0.9rem;
+}
+
+.show-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.show-meta {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.3;
+}
+
 /* Mobile-only divider between intro and shows */
 @media (max-width: 899px) {
   .shows {
