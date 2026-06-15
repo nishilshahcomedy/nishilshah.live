@@ -6,11 +6,18 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #111;
   background: #fff;
+  /* Lock the page to the viewport; only the shows list scrolls. */
+  overflow: hidden;
 }
 
 /* =========================
@@ -18,10 +25,13 @@ body {
 ========================= */
 
 .page {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
+  /* Intro takes its natural height; shows fill the rest and scroll. */
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 2rem;
 }
 
@@ -75,9 +85,15 @@ body {
 
 .shows {
   max-width: 360px;
+  /* Header stays put; only the list below scrolls. */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .shows-header {
+  flex: 0 0 auto;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -87,9 +103,17 @@ body {
 }
 
 .shows-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  /* Don't chain scroll to the page once the list hits its end. */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* Room so the last card / hover overlay isn't clipped by the edge. */
+  padding-bottom: 0.25rem;
 }
 
 .show-card {
@@ -155,8 +179,11 @@ body {
 @media (min-width: 900px) {
   .page {
     height: 100vh;
+    height: 100dvh;
     padding: 0;
     grid-template-columns: 1fr 360px;
+    /* Single full-height row so the shows column can scroll internally. */
+    grid-template-rows: minmax(0, 1fr);
   }
 
   .intro {
