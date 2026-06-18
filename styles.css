@@ -119,6 +119,8 @@ body {
 .show-card {
   position: relative;
   display: block;
+  /* Keep natural height so the list overflows and scrolls instead of squishing. */
+  flex: 0 0 auto;
   text-decoration: none;
   color: inherit;
   border: 1px solid #ccc;
