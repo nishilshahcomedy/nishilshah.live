@@ -131,6 +131,24 @@ a.show-card.past:hover {
   opacity: 1;
 }
 
+/* Self-produced shows: accent border + badge so they stand apart from
+   club spots you're just booked on. */
+.show-card.mine {
+  border-color: var(--accent);
+  border-left-width: 3px;
+  /* Offset the thicker left border so the text stays aligned with other cards. */
+  padding-left: calc(1.1rem - 2px);
+}
+
+.show-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
 .shows-list {
   flex: 1 1 auto;
   min-height: 0;

@@ -46,7 +46,14 @@
     <script>
       // Add a show by adding one entry below. Dates are YYYY-MM-DD (sortable).
       //   url  — if set, the card links out and shows "Get Tickets" on hover.
+      //          External URLs open in a new tab; internal paths (e.g. "/oct25")
+      //          open in the same tab.
+      //   mine — true for a self-produced show: gets a "NISHIL PRESENTS" badge,
+      //          an accent border, and a "View Show" label. Point url at its own
+      //          landing page, e.g. url: "/oct25" (copy the show-template folder).
       //   note — optional hover label for a non-ticketed card (e.g. door cover).
+      // Example self-produced show:
+      //   { date: "2026-10-25", venue: "Nishil Presents: The Show", city: "New York, NY", url: "/oct25", mine: true },
       const shows = [
         { date: "2026-01-10", venue: "Broadway Comedy Club", city: "New York, NY", url: "https://www.broadwaycomedyclub.com/" },
         { date: "2026-01-18", venue: "Whiskey Cellar", city: "New York, NY", url: "https://www.eventbrite.com/e/very-good-comedy-show-whiskey-cellar-tickets-1979647447807" },
@@ -93,16 +100,29 @@
       // labeled "View Event" rather than "Get Tickets".
       function buildCard(show, isPast) {
         const clickable = !!show.url;
+        const external = clickable && /^https?:\/\//.test(show.url);
         const card = document.createElement(clickable ? "a" : "div");
-        card.className = isPast ? "show-card past" : "show-card";
+        card.className = "show-card";
+        if (isPast) card.classList.add("past");
+        if (show.mine) card.classList.add("mine");
         if (clickable) {
           card.href = show.url;
-          card.target = "_blank";
-          card.rel = "noopener";
+          // Only external links open a new tab; internal pages stay in-tab.
+          if (external) {
+            card.target = "_blank";
+            card.rel = "noopener";
+          }
         }
 
         const content = document.createElement("div");
         content.className = "show-content";
+
+        if (show.mine) {
+          const badge = document.createElement("div");
+          badge.className = "show-badge";
+          badge.textContent = "NISHIL PRESENTS";
+          content.appendChild(badge);
+        }
 
         const title = document.createElement("div");
         title.className = "show-title";
@@ -116,10 +136,13 @@
         content.appendChild(meta);
         card.appendChild(content);
 
+        // Self-produced: "View Show" (leads to its landing page).
         // Upcoming: "Get Tickets" or a door note. Past: "View Event" (no note).
         let overlayText;
         if (isPast) {
           overlayText = clickable ? "View Event" : null;
+        } else if (show.mine) {
+          overlayText = "View Show";
         } else {
           overlayText = clickable ? "Get Tickets" : show.note;
         }

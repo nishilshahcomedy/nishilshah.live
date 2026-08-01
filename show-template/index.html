@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--
+  SELF-PRODUCED SHOW LANDING PAGE TEMPLATE
+  ----------------------------------------
+  To make a new show page:
+    1. Copy this whole folder and rename it to the URL slug you want,
+       e.g.  show-template/  ->  oct25/   (lives at nishilshah.live/oct25)
+    2. Fill in every [PLACEHOLDER] below (title, date, venue, blurb, links).
+    3. Drop a poster image in the folder as poster.jpg (or keep the portrait).
+    4. Wire the email form to your provider (see the <form> comment).
+    5. Add one line to the shows array in /index.html:
+         { date: "2026-10-25", venue: "Nishil Presents: [Name]",
+           city: "New York, NY", url: "/oct25", mine: true },
+  The page is locked to one viewport height — keep copy short so it never scrolls.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+
+    <title>[SHOW NAME] — Nishil Shah</title>
+    <meta name="description" content="[SHOW NAME] — [date] at [venue], New York. Presented by Nishil Shah." />
+
+    <!-- Social share preview (this link is the whole point — make it look good).
+         Use absolute URLs once live, e.g. https://nishilshah.live/oct25/poster.jpg -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[SHOW NAME] — Nishil Shah" />
+    <meta property="og:description" content="[date] at [venue], New York. Presented by Nishil Shah." />
+    <meta property="og:image" content="https://nishilshah.live/[SLUG]/poster.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <style>
+      /* Mirrors the home page: left-aligned, light weights, understated.
+         Only the ticket CTA carries the accent color. */
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #111;
+        background: #fff;
+        /* Accent shared with the main site. */
+        --accent: #4f46e5;
+        /* Single-viewport page: never scrolls. */
+        overflow: hidden;
+      }
+
+      /* Left-aligned block, vertically centered in the viewport — same feel
+         as the home page intro. */
+      .event {
+        min-height: 100vh;
+        min-height: 100dvh;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+
+      .event-back {
+        position: fixed;
+        top: 1.25rem;
+        left: 1.5rem;
+        font-size: 0.95rem;
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .event-back:hover {
+        border-bottom-color: rgba(0, 0, 0, 0.7);
+      }
+
+      /* Sized for a flyer (portrait art), shown whole rather than cropped.
+         max-height keeps the page on one screen — tune it to your flyer. */
+      .event-poster {
+        max-width: 240px;
+        max-height: 42vh;
+        max-height: 42dvh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+
+      /* Same as the home page .shows-header. */
+      .event-eyebrow {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #666;
+      }
+
+      /* Same as the home page .name — quiet, not a blown-up hero. */
+      .event-title {
+        margin: 0;
+        font-size: 1.9rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      /* When & where. Kept at body size / muted like .bio. */
+      .event-details {
+        margin: 0;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      /* Same as .bio. */
+      .event-blurb {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      /* Same as .show-meta. */
+      .event-lineup {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #666;
+      }
+
+      .event-tickets {
+        display: inline-block;
+        margin-top: 0.2rem;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.6rem 1.4rem;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .event-tickets:hover {
+        opacity: 0.9;
+      }
+
+      /* Email capture — for people who can't make it but want the next one. */
+      .event-signup-prompt {
+        margin: 0.3rem 0 0 0;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .event-signup {
+        display: flex;
+        gap: 0.4rem;
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .event-signup input {
+        flex: 1;
+        padding: 0.55rem 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+
+      .event-signup button {
+        padding: 0.55rem 1rem;
+        border: 1px solid #111;
+        border-radius: 6px;
+        background: #fff;
+        color: #111;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .event-signup button:hover {
+        background: #111;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="event">
+      <a class="event-back" href="../index.html">← All Shows</a>
+
+      <!-- Swap for the show poster (poster.jpg in this folder). Portrait is a
+           working default so the page renders before you add art. -->
+      <img class="event-poster" src="../images/portrait.jpg" alt="[SHOW NAME] poster" />
+
+      <p class="event-eyebrow">Nishil Shah Presents</p>
+      <h1 class="event-title">[SHOW NAME]</h1>
+      <p class="event-details">[Sat, Oct 25] · [Venue Name] · New York, NY</p>
+      <p class="event-blurb">
+        [One or two punchy lines that sell the night. Keep it short so the page
+        stays on one screen.]
+      </p>
+      <p class="event-lineup">Featuring [Comic], [Comic] &amp; more</p>
+
+      <!-- Links out to the club/venue box office to actually buy tickets. -->
+      <a
+        class="event-tickets"
+        href="[CLUB TICKET URL]"
+        target="_blank"
+        rel="noopener"
+        >Get Tickets</a
+      >
+
+      <p class="event-signup-prompt">Can't make it? Sign up for the next one ⤵️</p>
+
+      <!--
+        Hook this to your email provider. Two easy options:
+          • Kit / Mailchimp / Beehiiv: paste their embed and delete this <form>.
+          • Formspree: set action="https://formspree.io/f/XXXX" (no backend needed).
+      -->
+      <form class="event-signup" action="[EMAIL FORM ENDPOINT]" method="POST">
+        <input type="email" name="email" placeholder="you@email.com" required />
+        <button type="submit">Notify me</button>
+      </form>
+    </main>
+  </body>
+</html>
