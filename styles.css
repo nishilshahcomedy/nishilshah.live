@@ -16,6 +16,9 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #111;
   background: #fff;
+  /* Accent used for the hover overlay. Swap for a different vibe:
+     emerald #10b981, rose #e11d48, or amber #f59e0b. */
+  --accent: #4f46e5;
   /* Lock the page to the viewport; only the shows list scrolls. */
   overflow: hidden;
 }
@@ -163,10 +166,13 @@ a.show-card.past:hover {
 .show-overlay {
   position: absolute;
   inset: 0;
+  /* Sit above .show-content (z-index: 1) so it fully covers the card text. */
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.85);
+  /* Solid accent fill so no card text bleeds through on hover. */
+  background: var(--accent);
   color: #fff;
   font-size: 0.9rem;
   font-weight: 500;
