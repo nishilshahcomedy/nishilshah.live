@@ -78,45 +78,86 @@
         return MONTHS[month - 1] + " " + day;
       }
 
+      // Today as a local YYYY-MM-DD string, so it compares directly against the
+      // show dates without any timezone drift.
+      function todayISO() {
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, "0");
+        const d = String(now.getDate()).padStart(2, "0");
+        return y + "-" + m + "-" + d;
+      }
+
+      // Build one card. Past shows stay dimmed but remain clickable when they
+      // have a link — it points at the (now-ended) event page for reference,
+      // labeled "View Event" rather than "Get Tickets".
+      function buildCard(show, isPast) {
+        const clickable = !!show.url;
+        const card = document.createElement(clickable ? "a" : "div");
+        card.className = isPast ? "show-card past" : "show-card";
+        if (clickable) {
+          card.href = show.url;
+          card.target = "_blank";
+          card.rel = "noopener";
+        }
+
+        const content = document.createElement("div");
+        content.className = "show-content";
+
+        const title = document.createElement("div");
+        title.className = "show-title";
+        title.textContent = show.venue + " — " + formatShowDate(show.date);
+
+        const meta = document.createElement("div");
+        meta.className = "show-meta";
+        meta.textContent = show.city;
+
+        content.appendChild(title);
+        content.appendChild(meta);
+        card.appendChild(content);
+
+        // Upcoming: "Get Tickets" or a door note. Past: "View Event" (no note).
+        let overlayText;
+        if (isPast) {
+          overlayText = clickable ? "View Event" : null;
+        } else {
+          overlayText = clickable ? "Get Tickets" : show.note;
+        }
+        if (overlayText) {
+          const overlay = document.createElement("div");
+          overlay.className = "show-overlay";
+          overlay.textContent = overlayText;
+          card.appendChild(overlay);
+        }
+
+        return card;
+      }
+
       function renderShows() {
         const list = document.querySelector(".shows-list");
         if (!list) return;
 
-        const sorted = [...shows].sort((a, b) => a.date.localeCompare(b.date));
+        const today = todayISO();
+        const upcoming = shows
+          .filter((s) => s.date >= today)
+          .sort((a, b) => a.date.localeCompare(b.date)); // soonest first
+        const past = shows
+          .filter((s) => s.date < today)
+          .sort((a, b) => b.date.localeCompare(a.date)); // most recent first
 
-        for (const show of sorted) {
-          const card = document.createElement(show.url ? "a" : "div");
-          card.className = "show-card";
-          if (show.url) {
-            card.href = show.url;
-            card.target = "_blank";
-            card.rel = "noopener";
+        for (const show of upcoming) {
+          list.appendChild(buildCard(show, false));
+        }
+
+        if (past.length) {
+          const divider = document.createElement("div");
+          divider.className = "shows-subheader";
+          divider.textContent = "PAST SHOWS";
+          list.appendChild(divider);
+
+          for (const show of past) {
+            list.appendChild(buildCard(show, true));
           }
-
-          const content = document.createElement("div");
-          content.className = "show-content";
-
-          const title = document.createElement("div");
-          title.className = "show-title";
-          title.textContent = show.venue + " — " + formatShowDate(show.date);
-
-          const meta = document.createElement("div");
-          meta.className = "show-meta";
-          meta.textContent = show.city;
-
-          content.appendChild(title);
-          content.appendChild(meta);
-          card.appendChild(content);
-
-          const overlayText = show.url ? "Get Tickets" : show.note;
-          if (overlayText) {
-            const overlay = document.createElement("div");
-            overlay.className = "show-overlay";
-            overlay.textContent = overlayText;
-            card.appendChild(overlay);
-          }
-
-          list.appendChild(card);
         }
       }
 

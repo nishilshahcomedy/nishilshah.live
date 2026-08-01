@@ -102,6 +102,32 @@ body {
   margin-bottom: 0.75rem;
 }
 
+/* Divider label inside the scrolling list, above the past shows. */
+.shows-subheader {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #999;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  /* Slightly tighter to the past cards below than the list's default gap. */
+  margin-bottom: -0.25rem;
+}
+
+/* Past shows: dimmed and archival. Linked ones stay clickable and brighten
+   on hover so they read as interactive (and the overlay isn't washed out by
+   the card's own opacity). */
+.show-card.past {
+  opacity: 0.50;
+  transition: opacity 0.2s ease;
+}
+
+a.show-card.past:hover {
+  opacity: 1;
+}
+
 .shows-list {
   flex: 1 1 auto;
   min-height: 0;
