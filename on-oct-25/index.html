@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <!--
-  SELF-PRODUCED SHOW LANDING PAGE TEMPLATE
-  ----------------------------------------
-  To make a new show page:
-    1. Copy this whole folder and rename it to the URL slug you want,
-       e.g.  show-template/  ->  oct25/   (lives at nishilshah.live/oct25)
-    2. Fill in every [PLACEHOLDER] below (title, date, venue, blurb, links).
-    3. Drop your flyer art in the folder as flyer.jpg (or keep the portrait).
-    4. Wire the email form to your provider (see the <form> comment).
-    5. Add one line to the shows array in /index.html:
-         { date: "2026-10-25", venue: "Nishil Presents: [Name]",
-           city: "New York, NY", url: "/oct25", mine: true },
-  The page is locked to one viewport height — keep copy short so it never scrolls.
+  SHOW PAGE — nishilshah.live/on-oct-25
+  UNLISTED: intentionally not linked from the home page yet. Rename the folder
+  to change the URL (safe until you distribute the link anywhere).
+
+  TODO before publishing:
+    • Fill in [SHOW NAME], [date], [venue], the blurb, and the lineup
+    • Drop flyer.jpg in this folder (the portrait shows as a default until then)
+    • Set the Get Tickets href to the club box-office URL
+    • Wire the email form action to your provider (Kit embed / Formspree)
+    • Go live: add to the shows array in /index.html —
+        { date: "2026-10-25", venue: "Nishil Presents: [Name]",
+          city: "New York, NY", url: "/on-oct-25", mine: true },
+  Page is locked to one viewport height — keep copy short so it never scrolls.
 -->
 <html lang="en">
   <head>
@@ -27,7 +28,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[SHOW NAME] — Nishil Shah" />
     <meta property="og:description" content="[date] at [venue], New York. Presented by Nishil Shah." />
-    <meta property="og:image" content="https://nishilshah.live/[SLUG]/poster.jpg" />
+    <meta property="og:image" content="https://nishilshah.live/on-oct-25/flyer.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <style>
