@@ -204,6 +204,17 @@
         color: #fff;
       }
 
+      .event-signup[hidden] {
+        display: none;
+      }
+
+      /* Shown after a successful signup (replaces the form). */
+      .event-signup-done {
+        margin: 0.3rem 0 0 0;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
       /* LAPTOP/DESKTOP: split screen — big flyer on the left half, details on
          the right. Mirrors the home page's asymmetric two-column layout. */
       @media (min-width: 900px) {
@@ -269,15 +280,47 @@
         <p class="event-signup-prompt">Can't make it? Sign up for the next one ⤵️</p>
 
         <!--
-          Hook this to your email provider. Two easy options:
-            • Kit / Mailchimp / Beehiiv: paste their embed and delete this <form>.
-            • Formspree: set action="https://formspree.io/f/XXXX" (no backend needed).
+          Posts to Kit (form 9759877). The script below submits in the
+          background so people stay on this page. To also capture city, add a
+          custom field in Kit, then add an input here named fields[city].
         -->
-        <form class="event-signup" action="[EMAIL FORM ENDPOINT]" method="POST">
-          <input type="email" name="email" placeholder="you@email.com" required />
+        <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
+          <input type="email" name="email_address" placeholder="you@email.com" required />
           <button type="submit">Notify me</button>
         </form>
+        <p class="event-signup-done" hidden>Thanks — check your email to confirm ✅</p>
       </div>
     </main>
+
+    <script>
+      // Submit the signup to Kit without leaving the page, then swap the form
+      // for a confirmation. Falls back to a normal submit if fetch fails.
+      const signupForm = document.querySelector(".event-signup");
+      if (signupForm) {
+        signupForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const button = signupForm.querySelector("button");
+          const original = button.textContent;
+          button.disabled = true;
+          button.textContent = "…";
+          try {
+            const response = await fetch(signupForm.action, {
+              method: "POST",
+              body: new FormData(signupForm),
+              headers: { Accept: "application/json" },
+            });
+            if (!response.ok) throw new Error("Signup failed");
+            const prompt = document.querySelector(".event-signup-prompt");
+            if (prompt) prompt.hidden = true;
+            signupForm.hidden = true;
+            const done = document.querySelector(".event-signup-done");
+            if (done) done.hidden = false;
+          } catch (err) {
+            button.disabled = false;
+            button.textContent = "Try again";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
