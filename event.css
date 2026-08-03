@@ -1,0 +1,223 @@
+/* =========================================================================
+   Shared styles for self-produced show pages (show-template, /on-oct-25, …).
+   Every show page links this, so layout/spacing fixes happen in ONE place.
+   Per-page HTML only carries the show's content + its OG share tags.
+   ========================================================================= */
+
+/* Mirrors the home page: left-aligned, light weights, understated.
+   Only the ticket CTA carries the accent color. */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #111;
+  background: #fff;
+  /* Accent shared with the main site. */
+  --accent: #4f46e5;
+  /* Single-viewport page: never scrolls. */
+  overflow: hidden;
+}
+
+/* MOBILE-FIRST: everything stacks vertically — flyer on top, details
+   below — centered in the viewport, no scroll. */
+.event {
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.event-back {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.5rem;
+  z-index: 1;
+  font-size: 0.95rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.event-back:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.7);
+}
+
+.event-flyer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* The flyer art, shown whole (not cropped). max-height keeps the stacked
+   mobile layout on one screen — tune to your flyer. */
+.event-poster {
+  max-width: 220px;
+  max-height: 34vh;
+  max-height: 34dvh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* The details column. Left-aligned, like the home page. */
+.event-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* One spacing unit for the whole column — keep the rhythm uniform. */
+  gap: 0.75rem;
+}
+
+/* Same as the home page .shows-header. */
+.event-eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* Same as the home page .name — quiet, not a blown-up hero. */
+.event-title {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* When & where. Kept at body size / muted like .bio. */
+.event-details {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Like .bio, with a shorter measure and a bit more leading so the
+   longer copy breathes. */
+.event-blurb {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 40ch;
+}
+
+/* Same as .show-meta. */
+.event-lineup {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.event-tickets {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.event-tickets:hover {
+  opacity: 0.9;
+}
+
+/* Email capture — for people who can't make it but want the next one. */
+.event-signup-prompt {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.event-signup {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.event-signup input {
+  flex: 1;
+  /* Let the input shrink instead of pushing the button off-screen when a
+     long email is typed (flex items default to min-width: auto). */
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.event-signup button {
+  padding: 0.55rem 1rem;
+  border: 1px solid #111;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.event-signup button:hover {
+  background: #111;
+  color: #fff;
+}
+
+.event-signup[hidden] {
+  display: none;
+}
+
+/* Shown after a successful signup (replaces the form). */
+.event-signup-done {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+}
+
+/* LAPTOP/DESKTOP: split screen — big flyer on the left half, details on
+   the right. Mirrors the home page's asymmetric two-column layout. */
+@media (min-width: 900px) {
+  .event {
+    max-width: none;
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .event-flyer {
+    /* Sit toward the center gutter, next to the details. */
+    justify-content: flex-end;
+  }
+
+  .event-poster {
+    max-width: 100%;
+    max-height: 82vh;
+    max-height: 82dvh;
+  }
+
+  .event-info {
+    max-width: 400px;
+    gap: 1rem;
+  }
+}
