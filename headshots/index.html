@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+  HEADSHOTS / PRESS PHOTOS — nishilshah.live/headshots
+  Send this link to bookers/press so they can grab a photo themselves.
+
+  To add a photo:
+    1. Drop the image file in this folder (e.g. headshots/press-01.jpg).
+       Use hi-res files — bookers print these.
+    2. Add one line to the `photos` array below:
+         { file: "press-01.jpg", credit: "Photo by ___" },   // credit optional
+  To remove one, delete its line (and the file). Order top-to-bottom = array order.
+
+  Seeded with existing site images so it renders now — replace with real headshots.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+
+    <title>Headshots — Nishil Shah</title>
+    <meta name="description" content="Press photos and headshots for Nishil Shah, NYC-based standup comedian." />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #111;
+        background: #fff;
+      }
+
+      .headshots {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .headshots-back {
+        display: inline-block;
+        margin-bottom: 1.75rem;
+        font-size: 0.95rem;
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      }
+
+      .headshots-back:hover {
+        border-bottom-color: rgba(0, 0, 0, 0.7);
+      }
+
+      /* Matches the home page .name */
+      .headshots-title {
+        margin: 0 0 0.4rem 0;
+        font-size: 1.9rem;
+        font-weight: 500;
+      }
+
+      .headshots-note {
+        margin: 0 0 2rem 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #666;
+        max-width: 46ch;
+      }
+
+      /* Responsive grid — fills the row, wraps as needed. */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .shot {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .shot-image {
+        display: block;
+      }
+
+      .shot-image img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid #eee;
+        display: block;
+      }
+
+      .shot-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem;
+      }
+
+      .shot-credit {
+        font-size: 0.78rem;
+        color: #999;
+      }
+
+      .shot-download {
+        font-size: 0.85rem;
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+      }
+
+      .shot-download:hover {
+        border-bottom-color: rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="headshots">
+      <a class="headshots-back" href="../index.html">← Home</a>
+
+      <h1 class="headshots-title">Headshots</h1>
+      <p class="headshots-note">
+        Press &amp; promo photos — grab whichever works. Click an image for
+        full resolution, or hit Download. Booking:
+        <a href="mailto:bookings@nishilshah.live">bookings@nishilshah.live</a>.
+      </p>
+
+      <div class="gallery"></div>
+    </main>
+
+    <script>
+      // Add a photo: drop the file in this folder, add a line here.
+      // Paths are relative to /headshots. credit is optional.
+      const photos = [
+        { file: "../images/portrait.jpg" },
+        { file: "../images/headshot.png" },
+      ];
+
+      function renderGallery() {
+        const gallery = document.querySelector(".gallery");
+        if (!gallery) return;
+
+        photos.forEach((photo, i) => {
+          const shot = document.createElement("div");
+          shot.className = "shot";
+
+          // Image links to the full-size file (opens in a new tab).
+          const imageLink = document.createElement("a");
+          imageLink.className = "shot-image";
+          imageLink.href = photo.file;
+          imageLink.target = "_blank";
+          imageLink.rel = "noopener";
+
+          const img = document.createElement("img");
+          img.src = photo.file;
+          img.alt = "Nishil Shah headshot " + (i + 1);
+          img.loading = "lazy";
+          imageLink.appendChild(img);
+
+          const meta = document.createElement("div");
+          meta.className = "shot-meta";
+
+          const download = document.createElement("a");
+          download.className = "shot-download";
+          download.href = photo.file;
+          download.setAttribute("download", "");
+          download.textContent = "Download ↓";
+          meta.appendChild(download);
+
+          if (photo.credit) {
+            const credit = document.createElement("span");
+            credit.className = "shot-credit";
+            credit.textContent = photo.credit;
+            meta.appendChild(credit);
+          }
+
+          shot.appendChild(imageLink);
+          shot.appendChild(meta);
+          gallery.appendChild(shot);
+        });
+      }
+
+      renderGallery();
+    </script>
+  </body>
+</html>
