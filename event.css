@@ -134,7 +134,7 @@ body {
   padding: 0.6rem 1.4rem;
   border-radius: 6px;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .event-tickets:hover {
@@ -144,7 +144,8 @@ body {
 /* Email capture — for people who can't make it but want the next one. */
 .event-signup-prompt {
   margin: 0;
-  font-size: 0.9rem;
+  /* Match the body copy so it doesn't read as fine print. */
+  font-size: 1rem;
   color: #555;
 }
 
@@ -163,7 +164,9 @@ body {
   padding: 0.55rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 0.9rem;
+  /* 16px so iOS Safari doesn't auto-zoom (and shove the button off-screen)
+     when the field is focused. */
+  font-size: 1rem;
 }
 
 .event-signup button {
@@ -172,7 +175,8 @@ body {
   border-radius: 6px;
   background: #fff;
   color: #111;
-  font-size: 0.9rem;
+  /* Match the input so the row reads evenly. */
+  font-size: 1rem;
   cursor: pointer;
 }
 
