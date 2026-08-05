@@ -35,7 +35,7 @@ window.SHOWS = [
   { date: "2026-08-18", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-08-23", venue: "Wild East Brewing Co.", city: "Brooklyn, NY" },
   { date: "2026-08-25", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
-  { date: "2026-08-30", venue: "Local NY", city: "Queens, NY" },
   { date: "2026-08-30", venue: "The Comic Strip", city: "New York, NY" },
+  { date: "2026-08-30", venue: "Local NY", city: "Queens, NY" },
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
 ];
