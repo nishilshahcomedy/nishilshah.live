@@ -96,17 +96,33 @@
       <a class="watch-back" href="../index.html">← Home</a>
 
       <div class="watch-inner">
-        <div class="watch-frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/jST7wiKmfpk"
-            title="Nishil Shah — 5-minute set"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-        <p class="watch-caption">set from a while back (i'm better now)</p>
+        <div class="watch-frame" id="watch-frame"></div>
+        <p class="watch-caption" id="watch-caption"></p>
       </div>
     </main>
+
+    <script src="../watch-config.js"></script>
+    <script>
+      (function () {
+        var cfg = window.WATCH || {};
+        // If the video is turned off, don't expose the page.
+        if (!cfg.enabled || !cfg.videoId) {
+          location.replace("../index.html");
+          return;
+        }
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + cfg.videoId;
+        iframe.title = "Nishil Shah — 5-minute set";
+        iframe.loading = "lazy";
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        iframe.allowFullscreen = true;
+        document.getElementById("watch-frame").appendChild(iframe);
+        var caption = document.getElementById("watch-caption");
+        if (caption) caption.textContent = cfg.caption || "";
+      })();
+    </script>
   </body>
 </html>

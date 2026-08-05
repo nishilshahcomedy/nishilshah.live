@@ -46,11 +46,11 @@
           <a href="mailto:bookings@nishilshah.live">bookings@nishilshah.live</a>
         </nav>
 
-        <p class="watch-line">
+        <p class="watch-line" id="watch-line" hidden>
           <span class="watch-arrow" aria-hidden="true">➡️</span>
           <a class="watch-link" href="watch/index.html">5-minute set</a>
         </p>
-        <p class="watch-note">set from a while back (i'm better now)</p>
+        <p class="watch-note" id="watch-note" hidden></p>
       </section>
 
       <!-- Upcoming Shows -->
@@ -207,6 +207,21 @@
       }
 
       renderShows();
+    </script>
+
+    <script src="watch-config.js"></script>
+    <script>
+      // Show the "5-minute set" link only when the video is enabled
+      // (see watch-config.js). Caption text comes from the same config.
+      if (window.WATCH && window.WATCH.enabled) {
+        var watchLine = document.getElementById("watch-line");
+        var watchNote = document.getElementById("watch-note");
+        if (watchLine) watchLine.hidden = false;
+        if (watchNote && window.WATCH.caption) {
+          watchNote.textContent = window.WATCH.caption;
+          watchNote.hidden = false;
+        }
+      }
     </script>
 
     <script defer src="analytics.js"></script>
