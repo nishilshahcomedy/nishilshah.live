@@ -20,8 +20,8 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #111;
   background: #fff;
-  /* Accent shared with the main site. */
-  --accent: #4f46e5;
+  /* Oxblood accent — keep in sync with --accent in /styles.css. */
+  --accent: #8a2b3b;
   /* Single-viewport page: never scrolls. */
   overflow: hidden;
 }
