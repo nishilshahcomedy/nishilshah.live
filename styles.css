@@ -94,6 +94,12 @@ body {
   margin: 1.5rem 0 0 0;
 }
 
+/* display:flex above overrides the `hidden` attribute's display:none, so
+   restore it explicitly — otherwise the flag can't hide the link. */
+.watch-line[hidden] {
+  display: none;
+}
+
 .watch-link {
   font-size: 1rem;
   font-weight: 500;
