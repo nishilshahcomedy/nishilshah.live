@@ -37,5 +37,6 @@ window.SHOWS = [
   { date: "2026-08-25", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-08-30", venue: "The Comic Strip", city: "New York, NY" },
   { date: "2026-08-30", venue: "Local NY", city: "Queens, NY" },
+  { date: "2026-09-12", venue: "Rodney's Comedy Club", city: "New York, NY", url: "https://www.eventbrite.com/e/9th-annual-comedy-mob-festival-tickets-1997980769265?aff=oddtdtcreator&keep_tld=true" },
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
 ];
