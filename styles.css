@@ -213,6 +213,31 @@ a.show-card.past:hover {
   margin-bottom: 0.3rem;
 }
 
+/* Featured headline show — filled oxblood hero card so it's unmistakably
+   the marquee event among the outlined cards. */
+.show-card.featured {
+  background: var(--accent);
+  border-color: var(--accent);
+  /* Reset the .mine left-border offset — the border's invisible on the fill. */
+  border-left-width: 1px;
+  padding-left: 1.1rem;
+  color: #fff;
+}
+
+.show-card.featured .show-badge {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.show-card.featured .show-meta {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Overlay is same oxblood as the card, so darken it a touch so "View Show"
+   still reads on hover. */
+.show-card.featured .show-overlay {
+  background: #6d222e;
+}
+
 .shows-list {
   flex: 1 1 auto;
   min-height: 0;

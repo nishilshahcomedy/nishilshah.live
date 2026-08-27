@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <!--
-  SHOW PAGE — nishilshah.live/on-oct-25
-  UNLISTED: intentionally not linked from the home page yet. Rename the folder
-  to change the URL (safe until you distribute the link anywhere).
+  SHOW PAGE — nishilshah.live/on-oct-25  (Nishil Shah + Friends @ Flop House)
+  LIVE: linked from the home page (featured card).
 
   Styles are in /event.css and signup logic in /event.js (shared by all show
   pages). Only edit this page's CONTENT + the OG tags below.
 
-  TODO before publishing:
-    • Fill in [SHOW NAME], [date], [venue], the blurb, and the lineup
-    • Drop flyer.jpg in this folder (the portrait shows as a default until then)
-    • Set the Get Tickets href to the club box-office URL
-    • Go live: add to the shows array in /index.html —
-        { date: "2026-10-25", venue: "Nishil Presents: [Name]",
-          city: "New York, NY", url: "/on-oct-25", mine: true },
+  STILL TODO:
+    • Add flyer.jpg to this folder (portrait shows as default until then), and
+      point og:image at it once added.
+    • Add the show time to the details line if you want it.
+    • Swap the blurb / lineup for your own wording + real names.
   Page is locked to one viewport height — keep copy short so it never scrolls.
 -->
 <html lang="en">
@@ -22,14 +19,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="../favicon.png" type="image/png" />
 
-    <title>[SHOW NAME] — Nishil Shah</title>
-    <meta name="description" content="[SHOW NAME] — [date] at [venue], New York. Presented by Nishil Shah." />
+    <title>Nishil Shah + Friends</title>
+    <meta name="description" content="Nishil Shah + Friends — live stand-up at Flop House, NYC. Sunday, October 25." />
 
-    <!-- Social share preview (per-page). -->
+    <!-- Social share preview. Point og:image at flyer.jpg once you add it. -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="[SHOW NAME] — Nishil Shah" />
-    <meta property="og:description" content="[date] at [venue], New York. Presented by Nishil Shah." />
-    <meta property="og:image" content="https://nishilshah.live/on-oct-25/flyer.jpg" />
+    <meta property="og:title" content="Nishil Shah + Friends" />
+    <meta property="og:description" content="Live stand-up at Flop House, NYC — Sunday, October 25." />
+    <meta property="og:image" content="https://nishilshah.live/images/portrait.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="stylesheet" href="../event.css" />
@@ -43,24 +40,23 @@
            this folder). Portrait is a working default so the page renders before
            you add art. -->
       <div class="event-flyer">
-        <img class="event-poster" src="../images/portrait.jpg" alt="[SHOW NAME] flyer" />
+        <img class="event-poster" src="../images/portrait.jpg" alt="Nishil Shah + Friends flyer" />
       </div>
 
       <!-- RIGHT on laptop, BELOW on mobile. -->
       <div class="event-info">
         <p class="event-eyebrow">Nishil Shah Presents</p>
-        <h1 class="event-title">[SHOW NAME]</h1>
-        <p class="event-details">[Sat, Oct 25] · [Venue Name] · New York, NY</p>
+        <h1 class="event-title">Nishil Shah + Friends</h1>
+        <p class="event-details">Sun, Oct 25 · Flop House · New York, NY</p>
         <p class="event-blurb">
-          [One or two punchy lines that sell the night. Keep it short so the
-          page stays on one screen.]
+          A night of stand-up — me and some of the funniest comics I know, one room.
         </p>
-        <p class="event-lineup">Featuring [Comic], [Comic] &amp; more</p>
+        <p class="event-lineup">Full lineup coming soon.</p>
 
-        <!-- Links out to the club/venue box office to actually buy tickets. -->
+        <!-- Links out to Flop House's box office to buy tickets. -->
         <a
           class="event-tickets"
-          href="[CLUB TICKET URL]"
+          href="https://flophousecomedy.com/d4746cdc-a0b5-45ce-b897-afcb896b1851/event/d5cab7d9-10aa-4622-91fb-49ccc3478dfc"
           target="_blank"
           rel="noopener"
           >Get Tickets</a

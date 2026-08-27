@@ -94,6 +94,8 @@
         card.className = "show-card";
         if (isPast) card.classList.add("past");
         if (show.mine) card.classList.add("mine");
+        // Featured (headline) show: filled accent hero card.
+        if (show.featured) card.classList.add("featured");
         if (clickable) {
           card.href = show.url;
           // Only external links open a new tab; internal pages stay in-tab.
