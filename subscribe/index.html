@@ -2,8 +2,8 @@
 <!--
   MAILING LIST SIGNUP — nishilshah.live/subscribe
   A focused, single-purpose page to link from your IG bio, a QR code at shows,
-  texts, etc. Reuses the Kit form + shared /event.js submit logic.
-  Rename this folder to change the URL.
+  texts, etc. Mirrors the home intro (photo + name) up top, signup below.
+  Reuses the Kit form + shared /event.js submit logic.
 -->
 <html lang="en">
   <head>
@@ -39,19 +39,18 @@
         overflow: hidden;
       }
 
-      /* Left-aligned block, vertically centered — same understated feel as the
-         rest of the site. */
+      /* Left-aligned, vertically centered: intro up top, signup below. */
       .subscribe {
         min-height: 100vh;
         min-height: 100dvh;
         max-width: 460px;
         margin: 0 auto;
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        gap: 0.85rem;
+        gap: 2.5rem;
       }
 
       .subscribe-back {
@@ -69,18 +68,47 @@
         border-bottom-color: rgba(0, 0, 0, 0.7);
       }
 
-      .subscribe-eyebrow {
-        margin: 0;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #666;
+      /* --- Intro (mirrors the home page) --- */
+      .subscribe-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .subscribe-title {
-        margin: 0;
+      .subscribe-photo {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 1.25rem;
+      }
+
+      .subscribe-name {
+        margin: 0 0 0.4rem 0;
         font-size: 1.9rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .subscribe-bio {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      /* --- Signup --- */
+      .subscribe-signup {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .subscribe-heading {
+        margin: 0;
+        font-size: 1.15rem;
         font-weight: 500;
         line-height: 1.2;
       }
@@ -93,7 +121,7 @@
         max-width: 40ch;
       }
 
-      /* Reuses the .event-signup classes so shared /event.js drives the submit. */
+      /* Reuses .event-signup classes so shared /event.js drives the submit. */
       .event-signup {
         display: flex;
         gap: 0.5rem;
@@ -145,17 +173,24 @@
     <main class="subscribe">
       <a class="subscribe-back" href="../index.html">← Home</a>
 
-      <p class="subscribe-eyebrow">Nishil Shah</p>
-      <h1 class="subscribe-title">Get show updates</h1>
-      <p class="subscribe-copy event-signup-prompt">
-        Sign up and I'll email you when I've got a show coming up. No spam — just dates.
-      </p>
+      <div class="subscribe-intro">
+        <img class="subscribe-photo" src="../images/portrait.jpg" alt="Portrait of Nishil Shah" />
+        <h1 class="subscribe-name">Nishil Shah</h1>
+        <p class="subscribe-bio">NYC-based standup comedian.</p>
+      </div>
 
-      <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
-        <input type="email" name="email_address" placeholder="you@email.com" required />
-        <button type="submit">Sign me up</button>
-      </form>
-      <p class="event-signup-done" hidden>Thanks for signing up!</p>
+      <div class="subscribe-signup">
+        <h2 class="subscribe-heading">Get show updates</h2>
+        <p class="subscribe-copy event-signup-prompt">
+          Sign up and I'll email you when I've got a show coming up. No spam — just dates.
+        </p>
+
+        <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
+          <input type="email" name="email_address" placeholder="you@email.com" required />
+          <button type="submit">Sign me up</button>
+        </form>
+        <p class="event-signup-done" hidden>Thanks for signing up!</p>
+      </div>
     </main>
 
     <script src="../event.js"></script>
