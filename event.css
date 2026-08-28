@@ -219,7 +219,7 @@ body {
   border: 1px solid #ddd;
   border-bottom: none;
   border-radius: 14px 14px 0 0;
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.035);
 }
 
 /* Let the form fill the pinned card on mobile. */
@@ -255,9 +255,18 @@ body {
     gap: 1rem;
   }
 
-  /* Web: dissolve the wrapper so the signup flows inline exactly as before. */
+  /* Web: unpin the card — normal flow, no card chrome, column spacing that
+     matches the rest of the details. */
   .event-signup-card {
-    display: contents;
+    position: static;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    gap: 1rem;
   }
 
   .event-signup-card .event-signup {
