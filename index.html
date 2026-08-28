@@ -154,7 +154,11 @@
         const today = todayISO();
         const upcoming = shows
           .filter((s) => s.date >= today)
-          .sort((a, b) => a.date.localeCompare(b.date)); // soonest first
+          .sort((a, b) => {
+            // Featured shows pinned to the top; everything else soonest-first.
+            if (!!a.featured !== !!b.featured) return a.featured ? -1 : 1;
+            return a.date.localeCompare(b.date);
+          });
         const past = shows
           .filter((s) => s.date < today)
           .sort((a, b) => b.date.localeCompare(a.date)); // most recent first
