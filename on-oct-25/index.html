@@ -62,17 +62,20 @@
           >Get Tickets</a
         >
 
-        <p class="event-signup-prompt">Can't make it? Sign up for the next one ⤵️</p>
+        <!-- On mobile this group pins to the bottom as a card (see event.css). -->
+        <div class="event-signup-card">
+          <p class="event-signup-prompt">Can't make it? Sign up for the next one ⤵️</p>
 
-        <!--
-          Posts to Kit (form 9759877) via /event.js. To also capture city, add a
-          custom field in Kit, then add an input here named fields[city].
-        -->
-        <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
-          <input type="email" name="email_address" placeholder="you@email.com" required />
-          <button type="submit">Notify me</button>
-        </form>
-        <p class="event-signup-done" hidden>Thanks for signing up!</p>
+          <!--
+            Posts to Kit (form 9759877) via /event.js. To also capture city, add a
+            custom field in Kit, then add an input here named fields[city].
+          -->
+          <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
+            <input type="email" name="email_address" placeholder="you@email.com" required />
+            <button type="submit">Notify me</button>
+          </form>
+          <p class="event-signup-done" hidden>Thanks for signing up!</p>
+        </div>
       </div>
     </main>
 
