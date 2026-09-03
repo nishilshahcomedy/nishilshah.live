@@ -77,6 +77,9 @@
           -->
           <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
             <input type="email" name="email_address" placeholder="you@email.com" required />
+            <!-- Attribution: set value to this show's slug. Needs a "source"
+                 custom field in Kit to actually record. -->
+            <input type="hidden" name="fields[source]" value="show-slug" />
             <button type="submit">Notify me</button>
           </form>
           <p class="event-signup-done" hidden>Thanks for signing up!</p>

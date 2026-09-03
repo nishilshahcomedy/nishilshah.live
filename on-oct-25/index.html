@@ -72,6 +72,8 @@
           -->
           <form class="event-signup" action="https://app.kit.com/forms/9759877/subscriptions" method="post">
             <input type="email" name="email_address" placeholder="you@email.com" required />
+            <!-- Attribution: needs a "source" custom field created in Kit to record. -->
+            <input type="hidden" name="fields[source]" value="on-oct-25" />
             <button type="submit">Notify me</button>
           </form>
           <p class="event-signup-done" hidden>Thanks for signing up!</p>
