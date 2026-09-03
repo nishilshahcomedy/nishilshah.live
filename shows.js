@@ -37,6 +37,7 @@ window.SHOWS = [
   { date: "2026-09-01", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-09-08", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-08-30", venue: "Local NY", city: "Queens, NY" },
+  { date: "2026-09-11", venue: "One-and-One", city: "New York, NY" },
   { date: "2026-09-12", venue: "Rodney's Comedy Club", city: "New York, NY", url: "https://www.eventbrite.com/e/9th-annual-comedy-mob-festival-tickets-1997980769265?aff=oddtdtcreator&keep_tld=true" },
   { date: "2026-09-13", venue: "Local NY", city: "Queens, NY" },
   { date: "2026-09-09", venue: "Whiskey Cellar", city: "New York, NY", note: "Free Show" },
