@@ -152,14 +152,16 @@
         if (!list) return;
 
         const today = todayISO();
-        const upcoming = shows
+        // Shows flagged `hidden: true` are staged but not shown yet.
+        const visible = shows.filter((s) => !s.hidden);
+        const upcoming = visible
           .filter((s) => s.date >= today)
           .sort((a, b) => {
             // Featured shows pinned to the top; everything else soonest-first.
             if (!!a.featured !== !!b.featured) return a.featured ? -1 : 1;
             return a.date.localeCompare(b.date);
           });
-        const past = shows
+        const past = visible
           .filter((s) => s.date < today)
           .sort((a, b) => b.date.localeCompare(a.date)); // most recent first
 

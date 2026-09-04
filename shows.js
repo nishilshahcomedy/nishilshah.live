@@ -42,5 +42,5 @@ window.SHOWS = [
   { date: "2026-09-13", venue: "Local NY", city: "Queens, NY" },
   { date: "2026-09-09", venue: "Whiskey Cellar", city: "New York, NY", note: "Free Show" },
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
-  { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "New York, NY", url: "/on-oct-25", mine: true, featured: true },
+  { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "New York, NY", url: "/on-oct-25", mine: true, featured: true, hidden: true },
 ];
