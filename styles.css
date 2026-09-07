@@ -14,12 +14,9 @@ body {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #111;
-  background: #fff;
-  /* Purple accent (matches the Nishil Shah + Friends flyer) — a touch deeper
-     than the flyer's lavender so white button text stays legible. If you change
-     it, update the matching --accent in event.css + watch/ + subscribe/ too. */
-  --accent: #7a45cf;
+  color: var(--text);
+  background: var(--bg);
+  /* Colors come from theme.css (--accent, --text, etc.). */
   /* Lock the page to the viewport; only the shows list scrolls. */
   overflow: hidden;
 }
@@ -64,7 +61,7 @@ body {
 .bio {
   margin: 0 0 1.25rem 0;
   line-height: 1.5;
-  color: #333;
+  color: var(--text-body);
 }
 
 /* =========================
@@ -144,7 +141,7 @@ body {
   margin: 0.4rem 0 0 0;
   font-size: 0.85rem;
   font-style: italic;
-  color: #666;
+  color: var(--text-meta);
 }
 
 /* =========================
@@ -166,7 +163,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--text-meta);
   margin-bottom: 0.75rem;
 }
 
@@ -236,7 +233,7 @@ a.show-card.past:hover {
 /* Overlay is the same accent as the card, so darken it a touch so "View Show"
    still reads on hover. */
 .show-card.featured .show-overlay {
-  background: #5b329f;
+  background: var(--accent-dark);
 }
 
 .shows-list {
@@ -300,7 +297,7 @@ a.show-card.past:hover {
 
 .show-meta {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-meta);
   line-height: 1.3;
   margin-top: 0.25rem;
 }

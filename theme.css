@@ -1,0 +1,27 @@
+/* =========================================================================
+   DESIGN SYSTEM — color palette
+   The single source of truth for colors. Every page links this first, then
+   its own stylesheet references these tokens via var(--name).
+   Change a color here → it updates everywhere.
+   ========================================================================= */
+
+:root {
+  /* ---- Brand ---- */
+  --accent: #7a45cf;        /* purple — pulled from the flyer (deepened a touch
+                               so white text stays legible on fills) */
+  --accent-dark: #5b329f;   /* darker purple — featured-card hover overlay */
+
+  /* ---- Neutrals ---- */
+  --charcoal: #262322;      /* near-black from the flyer background (approx —
+                               swap for the exact hex if the designer has it).
+                               Used for the outlined secondary button. */
+
+  /* ---- Text (3 tiers) ---- */
+  --text: #111;             /* titles / primary text */
+  --text-body: #333;        /* body copy */
+  --text-meta: #666;        /* supporting / meta — the one secondary gray */
+
+  /* ---- Surfaces ---- */
+  --bg: #fff;               /* page background */
+  --border: #ccc;           /* input / hairline borders */
+}

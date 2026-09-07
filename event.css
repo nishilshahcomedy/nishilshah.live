@@ -18,11 +18,8 @@ body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #111;
-  background: #fff;
-  /* Purple accent (matches the flyer) — keep in sync with --accent in
-     /styles.css, watch/, and subscribe/. */
-  --accent: #7a45cf;
+  color: var(--text);
+  background: var(--bg);
   /* Single-viewport page: never scrolls. */
   overflow: hidden;
 }
@@ -87,10 +84,10 @@ body {
 }
 
 /* ---- Type scale: 3 tiers ----
-   TITLE  = .event-title (big/bold, #111)
-   BODY   = .event-blurb + .event-signup-prompt (1rem, #333)
+   TITLE  = .event-title       (big/bold, var(--text))
+   BODY   = .event-blurb + .event-signup-prompt  (1rem, var(--text-body))
    META   = .event-eyebrow + .event-details + .event-lineup
-            (0.85rem, one gray #666)                           */
+            (0.85rem, one gray var(--text-meta))               */
 
 /* META tier — kicker. */
 .event-eyebrow {
@@ -99,7 +96,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--text-meta);
 }
 
 /* TITLE tier — the one big/bold element. */
@@ -114,7 +111,7 @@ body {
 .event-details {
   margin: 0;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-meta);
 }
 
 /* BODY tier — the description. */
@@ -122,7 +119,7 @@ body {
   margin: 0;
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: var(--text-body);
   max-width: 40ch;
 }
 
@@ -130,7 +127,7 @@ body {
 .event-lineup {
   margin: 0;
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-meta);
 }
 
 /* PRIMARY button (filled). Shares radius/padding/font/weight with the
@@ -156,7 +153,7 @@ body {
 .event-signup-prompt {
   margin: 0;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-body);
 }
 
 .event-signup {
@@ -173,7 +170,7 @@ body {
   min-width: 0;
   /* Vertical padding matches the button so the row heights line up. */
   padding: 0.6rem 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 6px;
   /* 16px so iOS Safari doesn't auto-zoom (and shove the button off-screen)
      when the field is focused. */
@@ -184,17 +181,17 @@ body {
    .event-tickets — sibling to it, just outlined instead of filled. */
 .event-signup button {
   padding: 0.6rem 1.4rem;
-  border: 1px solid #111;
+  border: 1px solid var(--charcoal);
   border-radius: 6px;
-  background: #fff;
-  color: #111;
+  background: var(--bg);
+  color: var(--charcoal);
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
 }
 
 .event-signup button:hover {
-  background: #111;
+  background: var(--charcoal);
   color: #fff;
 }
 
@@ -207,7 +204,7 @@ body {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #111;
+  color: var(--text);
 }
 
 /* MOBILE: the signup group pins to the bottom of the screen as a card that
@@ -227,7 +224,7 @@ body {
   margin: 0 auto;
   /* Bottom padding respects the iPhone home-bar safe area. */
   padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom, 0px));
-  background: #fff;
+  background: var(--bg);
   border: 1px solid #ddd;
   border-bottom: none;
   border-radius: 14px 14px 0 0;
