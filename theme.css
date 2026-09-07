@@ -12,8 +12,7 @@
   --accent-dark: #5b329f;   /* darker purple — featured-card hover overlay */
 
   /* ---- Neutrals ---- */
-  --charcoal: #262322;      /* near-black from the flyer background (approx —
-                               swap for the exact hex if the designer has it).
+  --charcoal: #272425;      /* exact near-black sampled from the flyer background.
                                Used for the outlined secondary button. */
 
   /* ---- Text (3 tiers) ---- */

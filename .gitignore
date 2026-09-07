@@ -1,0 +1,5 @@
+# macOS junk
+.DS_Store
+
+# Local drop zone for sharing files with Claude — never publish these
+temp/

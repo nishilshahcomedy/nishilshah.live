@@ -139,7 +139,7 @@ body {
   color: #fff;
   text-decoration: none;
   padding: 0.6rem 1.4rem;
-  border: 1px solid var(--accent);
+  border: 1.5px solid var(--accent);
   border-radius: 6px;
   font-weight: 500;
   font-size: 1rem;
@@ -196,7 +196,7 @@ body {
   min-width: 0;
   /* Vertical padding matches the button so the row heights line up. */
   padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: 6px;
   /* 16px so iOS Safari doesn't auto-zoom (and shove the button off-screen)
      when the field is focused. */
@@ -207,7 +207,7 @@ body {
    .event-tickets — sibling to it, just outlined instead of filled. */
 .event-signup button {
   padding: 0.6rem 1.4rem;
-  border: 1px solid var(--charcoal);
+  border: 1.5px solid var(--charcoal);
   border-radius: 6px;
   background: var(--bg);
   color: var(--charcoal);
