@@ -257,7 +257,7 @@ a.show-card.past:hover {
   flex: 0 0 auto;
   text-decoration: none;
   color: inherit;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 0.875rem 1.1rem;
   overflow: hidden;
