@@ -156,6 +156,32 @@ body {
   color: var(--text-body);
 }
 
+/* Purple down-arrow next to the signup prompt — inline SVG (currentColor)
+   with a subtle bob toward the form. */
+.event-signup-arrow {
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.15em;
+  color: var(--accent);
+  animation: signup-arrow-bob 1.4s ease-in-out infinite;
+}
+
+@keyframes signup-arrow-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-signup-arrow {
+    animation: none;
+  }
+}
+
 .event-signup {
   display: flex;
   gap: 0.5rem;
