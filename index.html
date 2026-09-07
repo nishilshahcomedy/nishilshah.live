@@ -152,8 +152,11 @@
         if (!list) return;
 
         const today = todayISO();
-        // Shows flagged `hidden: true` are staged but not shown yet.
-        const visible = shows.filter((s) => !s.hidden);
+        // Shows flagged `hidden: true` are staged but not shown publicly.
+        // Visit the home page with ?preview in the URL to reveal them (for you).
+        const preview = new URLSearchParams(location.search).has("preview");
+        if (preview) console.log("%c[preview] showing hidden shows", "color:#8a2b3b;font-weight:bold");
+        const visible = preview ? shows : shows.filter((s) => !s.hidden);
         const upcoming = visible
           .filter((s) => s.date >= today)
           .sort((a, b) => {
