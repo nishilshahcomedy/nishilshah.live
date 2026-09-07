@@ -233,7 +233,7 @@ a.show-card.past:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Overlay is same oxblood as the card, so darken it a touch so "View Show"
+/* Overlay is the same accent as the card, so darken it a touch so "View Show"
    still reads on hover. */
 .show-card.featured .show-overlay {
   background: #5b329f;
