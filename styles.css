@@ -16,9 +16,10 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: #111;
   background: #fff;
-  /* Oxblood accent for the hover overlay. If you change it, update the matching
-     --accent in event.css too (show pages). */
-  --accent: #8a2b3b;
+  /* Purple accent (matches the Nishil Shah + Friends flyer) — a touch deeper
+     than the flyer's lavender so white button text stays legible. If you change
+     it, update the matching --accent in event.css + watch/ + subscribe/ too. */
+  --accent: #7a45cf;
   /* Lock the page to the viewport; only the shows list scrolls. */
   overflow: hidden;
 }
@@ -213,8 +214,8 @@ a.show-card.past:hover {
   margin-bottom: 0.3rem;
 }
 
-/* Featured headline show — filled oxblood hero card so it's unmistakably
-   the marquee event among the outlined cards. */
+/* Featured headline show — filled accent (purple) hero card so it's
+   unmistakably the marquee event among the outlined cards. */
 .show-card.featured {
   background: var(--accent);
   border-color: var(--accent);
@@ -235,7 +236,7 @@ a.show-card.past:hover {
 /* Overlay is same oxblood as the card, so darken it a touch so "View Show"
    still reads on hover. */
 .show-card.featured .show-overlay {
-  background: #6d222e;
+  background: #5b329f;
 }
 
 .shows-list {
