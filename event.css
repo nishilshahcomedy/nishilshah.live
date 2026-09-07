@@ -86,54 +86,63 @@ body {
   gap: 0.75rem;
 }
 
-/* Same as the home page .shows-header. */
+/* ---- Type scale: 3 tiers ----
+   TITLE  = .event-title (big/bold, #111)
+   BODY   = .event-blurb + .event-signup-prompt (1rem, #333)
+   META   = .event-eyebrow + .event-details + .event-lineup
+            (0.85rem, one gray #666)                           */
+
+/* META tier — kicker. */
 .event-eyebrow {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #666;
 }
 
-/* Same as the home page .name — quiet, not a blown-up hero. */
+/* TITLE tier — the one big/bold element. */
 .event-title {
   margin: 0;
   font-size: 1.9rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
 }
 
-/* When & where. Kept at body size / muted like .bio. */
+/* META tier — date/venue. Same small size + gray as the kicker. */
 .event-details {
   margin: 0;
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-/* Like .bio, with a shorter measure and a bit more leading so the
-   longer copy breathes. */
+/* BODY tier — the description. */
 .event-blurb {
   margin: 0;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #333;
   max-width: 40ch;
 }
 
-/* Same as .show-meta. */
+/* META tier — lineup line. */
 .event-lineup {
   margin: 0;
   font-size: 0.85rem;
   color: #666;
 }
 
+/* PRIMARY button (filled). Shares radius/padding/font/weight with the
+   secondary .event-signup button so they read as siblings; the border (same
+   color as the fill) keeps its box the same height as the outlined one. */
 .event-tickets {
   display: inline-block;
   background: var(--accent);
   color: #fff;
   text-decoration: none;
   padding: 0.6rem 1.4rem;
+  border: 1px solid var(--accent);
   border-radius: 6px;
   font-weight: 500;
   font-size: 1rem;
@@ -143,12 +152,11 @@ body {
   opacity: 0.9;
 }
 
-/* Email capture — for people who can't make it but want the next one. */
+/* BODY tier — matches the blurb (same size + color). */
 .event-signup-prompt {
   margin: 0;
-  /* Match the body copy so it doesn't read as fine print. */
   font-size: 1rem;
-  color: #555;
+  color: #333;
 }
 
 .event-signup {
@@ -163,7 +171,8 @@ body {
   /* Let the input shrink instead of pushing the button off-screen when a
      long email is typed (flex items default to min-width: auto). */
   min-width: 0;
-  padding: 0.55rem 0.75rem;
+  /* Vertical padding matches the button so the row heights line up. */
+  padding: 0.6rem 0.75rem;
   border: 1px solid #ccc;
   border-radius: 6px;
   /* 16px so iOS Safari doesn't auto-zoom (and shove the button off-screen)
@@ -171,13 +180,15 @@ body {
   font-size: 1rem;
 }
 
+/* SECONDARY button (outlined). Same radius/padding/font/weight as
+   .event-tickets — sibling to it, just outlined instead of filled. */
 .event-signup button {
-  padding: 0.55rem 1rem;
+  padding: 0.6rem 1.4rem;
   border: 1px solid #111;
   border-radius: 6px;
   background: #fff;
   color: #111;
-  /* Match the input so the row reads evenly. */
+  font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
 }
