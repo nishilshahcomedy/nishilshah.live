@@ -16,7 +16,7 @@ window.SHOWS = [
   { date: "2026-01-10", venue: "Broadway Comedy Club", city: "New York, NY", url: "https://www.broadwaycomedyclub.com/" },
   { date: "2026-01-18", venue: "Whiskey Cellar", city: "New York, NY", url: "https://www.eventbrite.com/e/very-good-comedy-show-whiskey-cellar-tickets-1979647447807" },
   { date: "2026-03-01", venue: "Good Karma Comedy Festival", city: "Bethlehem, PA", url: "https://www.artsquest.org/event/good-karma-comedy-festival-clean-comedy-showcase/" },
-  { date: "2026-04-01", venue: "Flop House", city: "New York, NY", url: "https://www.flophousecomedy.com/event/1984172217515" },
+  { date: "2026-04-01", venue: "Flop House", city: "Brooklyn, NY", url: "https://www.flophousecomedy.com/event/1984172217515" },
   { date: "2026-04-12", venue: "New York Comedy Club (UWS)", city: "New York, NY", url: "https://newyorkcomedyclub.com/events/next-gen-comics-2026-04-12160000" },
   { date: "2026-04-21", venue: "St. Marks Comedy Club", city: "New York, NY", url: "https://www.eventbrite.com/e/very-good-comedy-at-st-marks-april-21-tickets-1986904213990" },
   { date: "2026-05-19", venue: "St. Marks Comedy Club", city: "New York, NY", url: "https://www.eventbrite.com/e/very-good-comedy-at-st-marks-comedy-club-tickets-1988926548848?utm_experiment=test_share_listing&aff=ebdsshios" },
@@ -44,5 +44,5 @@ window.SHOWS = [
   { date: "2026-09-15", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-09-17", venue: "Comic Strip Live", city: "New York, NY", url: "https://www.eventbrite.com/e/the-andy-engel-show-tickets-1998677825178?aff=oddtdtcreator&keep_tld=true" },
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
-  { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "New York, NY", url: "/on-oct-25", mine: true, featured: true },
+  { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "Brooklyn, NY", url: "/on-oct-25", mine: true, featured: true },
 ];

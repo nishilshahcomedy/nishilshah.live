@@ -7,13 +7,18 @@
 
 :root {
   /* ---- Brand ---- */
-  --accent: #7a45cf;        /* purple — pulled from the flyer (deepened a touch
-                               so white text stays legible on fills) */
+  --accent: #7a45cf;        /* purple — deepened so white text stays legible on
+                               fills. Originally sampled from the first Oct 25
+                               flyer; that flyer is now amber (#ffc96e) + black,
+                               and we kept purple on purpose — it pairs with the
+                               amber rather than competing. Don't swap the accent
+                               to amber without also flipping button text to
+                               black: white on amber is ~1.7:1 and unreadable. */
   --accent-dark: #5b329f;   /* darker purple — featured-card hover overlay */
 
   /* ---- Neutrals ---- */
-  --charcoal: #272425;      /* exact near-black sampled from the flyer background.
-                               Used for the outlined secondary button. */
+  --charcoal: #272425;      /* near-black. Used for the outlined secondary
+                               button; also close to the flyer's ink. */
 
   /* ---- Text (3 tiers) ---- */
   --text: #111;             /* titles / primary text */

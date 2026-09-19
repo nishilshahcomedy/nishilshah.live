@@ -86,8 +86,8 @@ body {
 /* ---- Type scale: 3 tiers ----
    TITLE  = .event-title       (big/bold, var(--text))
    BODY   = .event-blurb + .event-signup-prompt  (1rem, var(--text-body))
-   META   = .event-eyebrow + .event-details + .event-lineup
-            (0.85rem, one gray var(--text-meta))               */
+   META   = .event-eyebrow + .event-details + .event-price + .event-doors
+            + .event-lineup  (0.85rem, one gray var(--text-meta))  */
 
 /* META tier — kicker. */
 .event-eyebrow {
@@ -121,6 +121,24 @@ body {
   line-height: 1.5;
   color: var(--text-body);
   max-width: 40ch;
+}
+
+/* META tier — doors, sits under the tickets button (venue + address live in
+   the top details row). Show time is deliberately NOT here: the box office
+   page states it, and doors is what decides when someone leaves the house. */
+.event-doors {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--text-meta);
+}
+
+/* META tier — price, sits directly above the tickets button. Shown so nobody
+   has to click through to find out it's cheap. */
+.event-price {
+  margin: 0 0 0.15rem 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-body);
 }
 
 /* META tier — lineup line. */
