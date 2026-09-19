@@ -292,10 +292,30 @@ body {
     gap: 1rem;
   }
 
-  .event-poster {
-    max-width: 300px;
+  /* The flyer takes whatever vertical space the TEXT leaves over, rather than
+     claiming a fixed slice of the viewport. Adding a line of copy (a fourth
+     headliner, a longer blurb) now shrinks the art instead of pushing the
+     button and doors line underneath the pinned signup card. */
+  .event-flyer {
+    /* Grow into free space, and shrink when there isn't any. min-height:0 is
+       what actually permits shrinking below the image's natural height. */
+    flex: 1 1 auto;
+    min-height: 0;
+    /* Upper bound so the art doesn't dominate a tall phone. */
     max-height: 42vh;
     max-height: 42dvh;
+  }
+
+  /* Text never shrinks — it's the content that has to stay readable. */
+  .event-info {
+    flex: 0 0 auto;
+  }
+
+  .event-poster {
+    max-width: 300px;
+    /* Fill whatever height .event-flyer ended up with; object-fit keeps the
+       4:5 aspect so it letterboxes rather than distorts. */
+    max-height: 100%;
   }
 
   /* The flyer is the headline on a phone — the H1 drops to just above body
