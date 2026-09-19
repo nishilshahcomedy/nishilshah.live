@@ -8,13 +8,22 @@
   To make a new show page:
     1. Copy this whole folder and rename it to the URL slug you want,
        e.g.  show-template/  ->  oct25/   (lives at nishilshah.live/oct25)
-    2. Fill in every [PLACEHOLDER] below (title, date, venue, blurb, links)
-       and the OG share tags in <head>.
-    3. Drop your flyer art in the folder as flyer.jpg (or keep the portrait).
-    4. Add one line to the shows array in /index.html:
-         { date: "2026-10-25", venue: "Nishil Presents: [Name]",
-           city: "New York, NY", url: "/oct25", mine: true },
+    2. Fill in every [PLACEHOLDER] below (title, date, venue, price, blurb,
+       links) and the OG share tags in <head>.
+    3. Drop your flyer art in the folder as flyer.png (1080x1350, 4:5) and
+       point the <img> + og:image at it.
+    4. Set the signup form's hidden fields[source] to this show's slug.
+    5. Add one line to the SHOWS array in /shows.js:
+         { date: "2026-10-25", venue: "[Show Name]", city: "Brooklyn, NY",
+           url: "/[slug]", mine: true, featured: true },
   The page is locked to one viewport height — keep copy short so it never scrolls.
+
+  TWO RULES worth keeping (learned on the Oct 25 page):
+    • No "← All Shows" link and no "Nishil Shah Presents" kicker. This page
+      should convert to a ticket, not leak traffic to other people's shows,
+      and the flyer already has your name on it.
+    • If the flyer lists the lineup, don't repeat it in the info column — put
+      the names in the flyer's alt text instead so they still exist as text.
 -->
 <html lang="en">
   <head>
@@ -23,14 +32,16 @@
     <link rel="icon" href="../favicon.png" type="image/png" />
 
     <title>[SHOW NAME] — Nishil Shah</title>
-    <meta name="description" content="[SHOW NAME] — [date] at [venue], New York. Presented by Nishil Shah." />
+    <meta name="description" content="[SHOW NAME] — live stand-up at [Venue], [Borough]. [Day, Month DD]. $[X] early bird." />
 
     <!-- Social share preview (per-page — scrapers don't run JS, so it can't be
-         shared). Use absolute URLs, e.g. https://nishilshah.live/oct25/flyer.jpg -->
+         shared). Use absolute URLs, e.g. https://nishilshah.live/[slug]/flyer.png
+         NOTE: previews crop to ~1.91:1, so a 4:5 flyer loses its top and bottom.
+         Export a wide version for og:image if the date/venue sit near an edge. -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[SHOW NAME] — Nishil Shah" />
-    <meta property="og:description" content="[date] at [venue], New York. Presented by Nishil Shah." />
-    <meta property="og:image" content="https://nishilshah.live/[SLUG]/flyer.jpg" />
+    <meta property="og:description" content="Live stand-up at [Venue], [Borough] — [Day, Month DD]. $[X] early bird." />
+    <meta property="og:image" content="https://nishilshah.live/[SLUG]/flyer.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="stylesheet" href="../theme.css" />
@@ -39,26 +50,30 @@
 
   <body>
     <main class="event">
-      <a class="event-back" href="../">← All Shows</a>
-
-      <!-- LEFT on laptop, TOP on mobile. Swap for the show flyer (flyer.jpg in
-           this folder). Portrait is a working default so the page renders before
-           you add art. -->
+      <!-- LEFT on laptop, TOP on mobile. -->
       <div class="event-flyer">
-        <img class="event-poster" src="../images/portrait.jpg" alt="[SHOW NAME] flyer" />
+        <!-- Alt text is the only text copy of anything printed on the flyer
+             (lineup, host, show time) — write it out in full. -->
+        <img
+          class="event-poster"
+          src="flyer.png"
+          alt="[SHOW NAME] — live stand-up, [time] [Day Month DD YYYY] at [Venue]. Featuring [Comic], [Comic], [Comic]. Hosted by [Host]."
+        />
       </div>
 
       <!-- RIGHT on laptop, BELOW on mobile. -->
       <div class="event-info">
-        <p class="event-eyebrow">Nishil Shah Presents</p>
         <h1 class="event-title">[SHOW NAME]</h1>
-        <p class="event-details">[Sat, Oct 25] · [Venue Name] · New York, NY</p>
+        <p class="event-details">[Sun, Oct 25] · [Venue] ([Street Address], [Borough])</p>
         <p class="event-blurb">
           [One or two punchy lines that sell the night. Keep it short so the
           page stays on one screen.]
         </p>
-        <p class="event-lineup">Featuring [Comic], [Comic] &amp; more</p>
 
+        <!-- Price above the button, doors below it. Show price so nobody has to
+             click through to learn it's cheap; the box office page carries the
+             show time, so doors is the only time worth stating here. -->
+        <p class="event-price">$[X] early bird · $[Y] after</p>
         <!-- Links out to the club/venue box office to actually buy tickets. -->
         <a
           class="event-tickets"
@@ -67,6 +82,7 @@
           rel="noopener"
           >Get Tickets</a
         >
+        <p class="event-doors">Doors @ [7:30]</p>
 
         <!-- On mobile this group pins to the bottom as a card (see event.css). -->
         <div class="event-signup-card">

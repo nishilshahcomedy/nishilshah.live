@@ -86,8 +86,12 @@ body {
 /* ---- Type scale: 3 tiers ----
    TITLE  = .event-title       (big/bold, var(--text))
    BODY   = .event-blurb + .event-signup-prompt  (1rem, var(--text-body))
-   META   = .event-eyebrow + .event-details + .event-price + .event-doors
-            + .event-lineup  (0.85rem, one gray var(--text-meta))  */
+   META   = .event-details + .event-price + .event-doors
+            (0.85rem, one gray var(--text-meta))
+
+   .event-eyebrow / .event-lineup / .event-back are kept but UNUSED — no show
+   page has a kicker, a text lineup, or a back-to-all-shows link any more.
+   Kept in case a future show wants one; safe to delete if they stay unused. */
 
 /* META tier — kicker. */
 .event-eyebrow {
