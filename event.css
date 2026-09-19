@@ -284,11 +284,10 @@ body {
   max-width: none;
 }
 
-/* PHONE: the page can't scroll (body overflow:hidden), so every line here is
-   competing with the flyer for the same fixed height. Trim the text that the
-   box office page also carries, shrink the title, and give the space back to
-   the art — the flyer is the thing people actually look at on a phone.
-   Doors stays: it is published nowhere else. */
+/* PHONE: the page can't scroll (body overflow:hidden), so every line competes
+   with the flyer for the same fixed height. All the INFO stays — the meta tier
+   is already small enough on a phone that it costs little. What changes is the
+   art: a bigger flyer, since the lineup only exists there now. */
 @media (max-width: 899px) {
   .event {
     gap: 1rem;
@@ -304,11 +303,6 @@ body {
     font-size: 1.4rem;
   }
 
-  /* Street address — the ticket email and box office page both carry it, and
-     it wraps the details line to two. Borough stays via the flyer/venue name. */
-  .event-address {
-    display: none;
-  }
 }
 
 /* LAPTOP/DESKTOP: split screen — big flyer on the left half, details on
