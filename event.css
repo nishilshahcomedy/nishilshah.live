@@ -127,9 +127,9 @@ body {
   max-width: 40ch;
 }
 
-/* META tier — doors, sits under the tickets button (venue + address live in
-   the top details row). Show time is deliberately NOT here: the box office
-   page states it, and doors is what decides when someone leaves the house. */
+/* META tier — doors + show time, sits under the tickets button (venue and
+   address live in the top details row). Keep BOTH numbers: a doors time on
+   its own doesn't tell anyone when the comedy actually starts. */
 .event-doors {
   margin: 0.5rem 0 0 0;
   font-size: 0.85rem;
