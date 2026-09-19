@@ -85,9 +85,9 @@ body {
 
 /* ---- Type scale: 3 tiers ----
    TITLE  = .event-title       (big/bold, var(--text))
-   BODY   = .event-blurb + .event-signup-prompt  (1rem, var(--text-body))
-   META   = .event-details + .event-price + .event-doors
-            (0.85rem, one gray var(--text-meta))
+   BODY   = .event-blurb + .event-price + .event-doors + .event-signup-prompt
+            (1rem, var(--text-body))
+   META   = .event-details  (0.85rem, one gray var(--text-meta))
 
    .event-eyebrow / .event-lineup / .event-back are kept but UNUSED — no show
    page has a kicker, a text lineup, or a back-to-all-shows link any more.
@@ -132,16 +132,15 @@ body {
    its own doesn't tell anyone when the comedy actually starts. */
 .event-doors {
   margin: 0.5rem 0 0 0;
-  font-size: 0.85rem;
-  color: var(--text-meta);
+  font-size: 1rem;
+  color: var(--text-body);
 }
 
 /* META tier — price, sits directly above the tickets button. Shown so nobody
    has to click through to find out it's cheap. */
 .event-price {
   margin: 0 0 0.15rem 0;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 1rem;
   color: var(--text-body);
 }
 
@@ -299,10 +298,17 @@ body {
     max-height: 42dvh;
   }
 
+  /* The flyer is the headline on a phone — the H1 drops to just above body
+     copy so it labels the page instead of competing with the art. */
   .event-title {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
   }
 
+  /* Phone only — desktop keeps these at full body size (1rem, --text-body). */
+  .event-price,
+  .event-doors {
+    font-size: 0.85rem;
+  }
 }
 
 /* LAPTOP/DESKTOP: split screen — big flyer on the left half, details on
