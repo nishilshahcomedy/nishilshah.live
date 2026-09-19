@@ -2,8 +2,11 @@
 <!--
   MAILING LIST SIGNUP — nishilshah.live/subscribe
   A focused, single-purpose page to link from your IG bio, a QR code at shows,
-  texts, etc. Mirrors the home intro (photo + name) up top, signup below.
-  Reuses the Kit form + shared /event.js submit logic.
+  texts, etc. Intro (photo + name) up top, then a callout for the one show we
+  want to push, then signup. Reuses the Kit form + shared /event.js logic.
+
+  NOTE: this page deliberately does NOT link to the home page / all-shows list —
+  it should only ever point at a self-produced show.
 -->
 <html lang="en">
   <head>
@@ -54,19 +57,32 @@
         gap: 2.5rem;
       }
 
-      .subscribe-back {
-        position: fixed;
-        top: 1.25rem;
-        left: 1.5rem;
-        z-index: 1;
-        font-size: 0.95rem;
-        color: inherit;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      /* Show callout — the one show we want this page to send people to.
+         Deliberately NOT a link to the home page / all-shows list. */
+      .subscribe-show {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        padding-left: 0.85rem;
+        border-left: 3px solid var(--accent);
       }
 
-      .subscribe-back:hover {
-        border-bottom-color: rgba(0, 0, 0, 0.7);
+      .subscribe-show-label {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-meta);
+      }
+
+      .subscribe-show-link {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .subscribe-show-link:hover {
+        text-decoration: underline;
       }
 
       /* --- Intro (mirrors the home page) --- */
@@ -167,17 +183,37 @@
         font-weight: 500;
         color: var(--text);
       }
+
+      /* Short phones: the page can't scroll (overflow:hidden), so tighten the
+         stack rather than let the signup get clipped off the bottom. */
+      @media (max-height: 680px) {
+        .subscribe {
+          gap: 1.5rem;
+          padding: 1.5rem;
+        }
+
+        .subscribe-photo {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 0.9rem;
+        }
+      }
     </style>
   </head>
 
   <body>
     <main class="subscribe">
-      <a class="subscribe-back" href="../">← Home</a>
-
       <div class="subscribe-intro">
         <img class="subscribe-photo" src="../images/portrait.jpg" alt="Portrait of Nishil Shah" />
         <h1 class="subscribe-name">Nishil Shah</h1>
         <p class="subscribe-bio">NYC-based standup comedian.</p>
+      </div>
+
+      <!-- Points at the Oct 25 show only. After Oct 25 either repoint this at
+           the next self-produced show or delete the block. -->
+      <div class="subscribe-show">
+        <p class="subscribe-show-label">Sun, Oct 25 · Flop House, NYC</p>
+        <a class="subscribe-show-link" href="../on-oct-25/">Nishil Shah + Friends — get tickets →</a>
       </div>
 
       <div class="subscribe-signup">
