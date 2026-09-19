@@ -288,8 +288,20 @@ body {
    is already small enough on a phone that it costs little. What changes is the
    art: a bigger flyer, since the lineup only exists there now. */
 @media (max-width: 899px) {
+  /* LAST-RESORT SAFETY NET. The flyer shrinking (below) should keep everything
+     on one screen, but if it ever isn't enough, scroll rather than silently
+     clip the Get Tickets button. If the content fits there is no scrollbar and
+     nothing looks different. */
+  body {
+    overflow-y: auto;
+  }
+
   .event {
     gap: 1rem;
+    /* "safe" matters: plain `center` pushes overflow past the TOP edge where
+       scrolling can't reach it. safe center falls back to flex-start only when
+       the content actually overflows. */
+    justify-content: safe center;
   }
 
   /* The flyer takes whatever vertical space the TEXT leaves over, rather than
