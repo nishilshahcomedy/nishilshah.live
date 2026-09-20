@@ -5,17 +5,19 @@
 // just absorbs the response so the page doesn't navigate.
 //
 // Feedback on success:
-//   • a toast slides up from the bottom (all surfaces) with the confirm nudge
+//   • a toast slides up from the bottom (all surfaces) thanking them
 //   • inline, the form is replaced with a quiet "you're on the list" line
 //     — except the mobile footer card, which gives way to the toast (same spot)
+//
+// Kit is set to SINGLE opt-in — no confirmation email is sent, so neither
+// message should tell anyone to go check their inbox.
 (function () {
   const signupForm = document.querySelector(".event-signup");
   if (!signupForm) return;
 
-  // Toast carries the full instruction so it also covers mobile (where the card
-  // is dismissed). Desktop additionally shows a persistent inline reminder —
-  // redundant, which is fine.
-  const TOAST_MSG = "Thanks so much! Check your email to confirm :)";
+  // Toast covers mobile too (where the card is dismissed). Desktop additionally
+  // shows a persistent inline line — redundant, which is fine.
+  const TOAST_MSG = "Appreciate you, see you at a show";
 
   // --- Toast styles (injected once; colors come from theme.css tokens) ---
   if (!document.getElementById("site-toast-style")) {
@@ -74,7 +76,7 @@
       signupForm.style.display = "none";
       const line = document.querySelector(".event-signup-done");
       if (line) {
-        line.textContent = "✓ Check your inbox";
+        line.textContent = "✓ You're on the list";
         line.hidden = false;
       }
     }
