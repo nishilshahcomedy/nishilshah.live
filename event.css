@@ -127,6 +127,20 @@ body {
   max-width: 40ch;
 }
 
+/* Modifier for .event-blurb when it's carrying a practical note rather than
+   copy — same size/spacing, just quieter. Added as a second class so the
+   plain .event-blurb (still used by show-template) is unaffected. */
+.event-note {
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--accent);
+  color: var(--text-meta);
+}
+
+.event-note strong {
+  font-weight: 600;
+  color: var(--text-body);
+}
+
 /* META tier — doors + show time, sits under the tickets button (venue and
    address live in the top details row). Keep BOTH numbers: a doors time on
    its own doesn't tell anyone when the comedy actually starts. */
