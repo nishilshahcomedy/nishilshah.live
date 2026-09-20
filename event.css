@@ -133,6 +133,7 @@ body {
 .event-note {
   padding-left: 0.85rem;
   border-left: 3px solid var(--accent);
+  font-size: 0.8rem;
   color: var(--text-meta);
 }
 
