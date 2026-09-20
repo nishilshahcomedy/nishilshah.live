@@ -49,7 +49,8 @@
         min-height: 100dvh;
         max-width: 460px;
         margin: 0 auto;
-        padding: 2rem 1.5rem;
+        /* Top padding clears the fixed show banner (~3.2rem tall). */
+        padding: 5.2rem 1.5rem 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -57,32 +58,30 @@
         gap: 2.5rem;
       }
 
-      /* Show callout — the one show we want this page to send people to.
-         Deliberately NOT a link to the home page / all-shows list. */
-      .subscribe-show {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
-        padding-left: 0.85rem;
-        border-left: 3px solid var(--accent);
-      }
-
-      .subscribe-show-label {
-        margin: 0;
+      /* Show banner — pinned across the top, the whole bar is the link.
+         Keeps the page body a pure mailing-list signup while still pushing the
+         one show we want traffic on. Deliberately NOT a link to the home page /
+         all-shows list. After Oct 25, repoint it or delete the <a> entirely. */
+      .subscribe-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        display: block;
+        padding: 1rem;
+        /* 80% of --accent (#7a45cf). Set on the BACKGROUND, not via opacity on
+           the element, so the white text stays fully opaque. */
+        background: rgba(122, 69, 207, 0.8);
+        color: #fff;
         font-size: 0.85rem;
-        color: var(--text-meta);
-      }
-
-      .subscribe-show-link {
-        font-size: 1.05rem;
         font-weight: 500;
-        color: var(--accent);
+        text-align: center;
         text-decoration: none;
       }
 
-      .subscribe-show-link:hover {
-        text-decoration: underline;
+      .subscribe-banner:hover {
+        background: var(--accent-dark);
       }
 
       /* --- Intro (mirrors the home page) --- */
@@ -189,7 +188,8 @@
       @media (max-height: 680px) {
         .subscribe {
           gap: 1.5rem;
-          padding: 1.5rem;
+          /* Still clears the fixed banner — just tighter everywhere else. */
+          padding: 4.7rem 1.5rem 1.5rem;
         }
 
         .subscribe-photo {
@@ -202,17 +202,13 @@
   </head>
 
   <body>
+    <!-- Points at the Oct 25 show only. After Oct 25, repoint or delete. -->
+    <a class="subscribe-banner" href="../on-oct-25/">Next show: Nishil Shah + Friends · Sun, Oct 25 →</a>
+
     <main class="subscribe">
       <div class="subscribe-intro">
         <img class="subscribe-photo" src="../images/portrait.jpg" alt="Portrait of Nishil Shah" />
         <h1 class="subscribe-name">Nishil Shah</h1>
-      </div>
-
-      <!-- Points at the Oct 25 show only. After Oct 25 either repoint this at
-           the next self-produced show or delete the block. -->
-      <div class="subscribe-show">
-        <p class="subscribe-show-label">Sun, Oct 25 · Flop House Comedy Club, Williamsburg</p>
-        <a class="subscribe-show-link" href="../on-oct-25/">Nishil Shah + Friends — get tickets →</a>
       </div>
 
       <div class="subscribe-signup">
