@@ -49,8 +49,10 @@
         min-height: 100dvh;
         max-width: 460px;
         margin: 0 auto;
-        /* Top padding clears the fixed show banner (~3.2rem tall). */
-        padding: 5.2rem 1.5rem 2rem;
+        /* Symmetric padding: the banner is position:fixed and overlays the top,
+           so the content stays centered in the full viewport rather than being
+           pushed down by it. */
+        padding: 2rem 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -70,18 +72,20 @@
         z-index: 10;
         display: block;
         padding: 1rem;
-        /* 80% of --accent (#7a45cf). Set on the BACKGROUND, not via opacity on
-           the element, so the white text stays fully opaque. */
-        background: rgba(122, 69, 207, 0.8);
-        color: #fff;
+        /* Soft tint of --accent rather than a saturated block: quieter than a
+           full purple bar, but contrast goes UP (dark text on pale ground)
+           instead of down the way reduced opacity would. */
+        background: #f3edfb;
+        border-bottom: 1px solid #e0d2f5;
+        color: var(--accent-dark);
         font-size: 0.85rem;
-        font-weight: 500;
+        font-weight: 600;
         text-align: center;
         text-decoration: none;
       }
 
       .subscribe-banner:hover {
-        background: var(--accent-dark);
+        background: #ece2f8;
       }
 
       /* --- Intro (mirrors the home page) --- */
