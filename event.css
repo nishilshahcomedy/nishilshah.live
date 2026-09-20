@@ -138,7 +138,7 @@ body {
 
 .event-note strong {
   font-weight: 600;
-  color: var(--text-body);
+  color: inherit;
 }
 
 /* META tier — doors + show time, sits under the tickets button (venue and
