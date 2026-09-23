@@ -32,7 +32,9 @@
     <link rel="stylesheet" href="../event.css" />
   </head>
 
-  <body>
+  <!-- SOLD OUT. Remove data-sold-out (or set "false") to put tickets back on
+       sale — see the SOLD OUT STATE block in /event.css for what it flips. -->
+  <body data-sold-out="true">
     <main class="event">
       <!-- LEFT on laptop, TOP on mobile. -->
       <div class="event-flyer">
@@ -56,18 +58,21 @@
         <p class="event-blurb event-note">
           Heads up: At checkout, select <strong>&ldquo;Just tonight&rsquo;s show&rdquo;</strong> (it defaults to a monthly pass).
         </p>
+        <!-- Both states live here; CSS shows one based on data-sold-out. -->
         <a
-          class="event-tickets"
+          class="event-tickets event-tickets--live"
           href="https://flophousecomedy.com/d4746cdc-a0b5-45ce-b897-afcb896b1851/event/d5cab7d9-10aa-4622-91fb-49ccc3478dfc"
           target="_blank"
           rel="noopener"
           >Get Tickets</a
         >
+        <span class="event-tickets event-tickets--soldout" aria-disabled="true">Sold out</span>
         <p class="event-doors">Doors 7:30 · Show 8PM</p>
 
         <!-- On mobile this group pins to the bottom as a card (see event.css). -->
         <div class="event-signup-card">
-          <p class="event-signup-prompt">Can't make it? Sign up for the next one <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
+          <p class="event-signup-prompt event-signup-prompt--live">Can't make it? Sign up for the next one <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
+          <p class="event-signup-prompt event-signup-prompt--soldout">I'll let you know about the next one first! <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
 
           <!--
             Posts to Kit (form 9759877) via /event.js. To also capture city, add a

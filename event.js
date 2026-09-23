@@ -71,8 +71,12 @@
       // Mobile footer card gives way to the toast (same bottom spot).
       card.style.display = "none";
     } else {
-      const prompt = document.querySelector(".event-signup-prompt");
-      if (prompt) prompt.style.display = "none";
+      // querySelectorAll, not querySelector: show pages carry both an on-sale
+      // and a sold-out prompt (CSS shows one). Hiding only the first would
+      // leave the visible one on screen after signup.
+      document
+        .querySelectorAll(".event-signup-prompt")
+        .forEach((p) => (p.style.display = "none"));
       signupForm.style.display = "none";
       const line = document.querySelector(".event-signup-done");
       if (line) {

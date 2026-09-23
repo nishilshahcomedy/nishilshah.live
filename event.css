@@ -185,6 +185,56 @@ body {
   opacity: 0.9;
 }
 
+/* =========================================================================
+   SOLD OUT STATE
+   Flip a whole show page by setting one attribute:  <body data-sold-out="true">
+   That single flag:
+     • swaps the Get Tickets link for a dead "Sold out" block
+     • hides the price line and the checkout note (both meaningless once
+       nothing is on sale)
+     • swaps the signup prompt to the sold-out wording
+   Both variants live in the HTML and CSS picks one, so there's no flash of the
+   wrong state and it still works with JS disabled. Remove the attribute to
+   put the page back on sale.
+   ========================================================================= */
+
+/* Sold-out variants are hidden by default (i.e. while tickets are on sale). */
+.event-tickets--soldout,
+.event-signup-prompt--soldout {
+  display: none;
+}
+
+/* On-sale variants + purchase info disappear once the flag is set. */
+[data-sold-out="true"] .event-tickets--live,
+[data-sold-out="true"] .event-signup-prompt--live,
+[data-sold-out="true"] .event-price,
+[data-sold-out="true"] .event-note {
+  display: none;
+}
+
+[data-sold-out="true"] .event-tickets--soldout {
+  display: inline-block;
+}
+
+[data-sold-out="true"] .event-signup-prompt--soldout {
+  display: block;
+}
+
+/* Same footprint as the live CTA so it reads as the button, spent. Applied to
+   a <span>, not an <a>: with no href nobody can slip through to the box office
+   and buy anyway. Solid muted fill rather than an outline, because the
+   outlined style already belongs to the (clickable) Notify me button. */
+.event-tickets--soldout {
+  background: #f1eff3;
+  border-color: #e3dfe8;
+  color: var(--text-meta);
+  cursor: default;
+}
+
+.event-tickets--soldout:hover {
+  opacity: 1;
+}
+
 /* BODY tier — matches the blurb (same size + color). */
 .event-signup-prompt {
   margin: 0;

@@ -48,6 +48,11 @@
     <link rel="stylesheet" href="../event.css" />
   </head>
 
+  <!-- WHEN IT SELLS OUT: add data-sold-out="true" to <body>. That one flag
+       swaps the ticket link for a dead "Sold out" block, hides the price line
+       and the checkout note, and switches the signup prompt to the sold-out
+       wording. Remove it to put the show back on sale. Details in the
+       SOLD OUT STATE block in /event.css. -->
   <body>
     <main class="event">
       <!-- LEFT on laptop, TOP on mobile. -->
@@ -74,19 +79,23 @@
              click through to learn it's cheap; the box office page carries the
              show time, so doors is the only time worth stating here. -->
         <p class="event-price">$[X] early bird · $[Y] after</p>
-        <!-- Links out to the club/venue box office to actually buy tickets. -->
+        <!-- Both states live here; CSS shows one based on data-sold-out.
+             Leave the <span> in place even while on sale — it costs nothing
+             and means flipping to sold out is a one-attribute change. -->
         <a
-          class="event-tickets"
+          class="event-tickets event-tickets--live"
           href="[CLUB TICKET URL]"
           target="_blank"
           rel="noopener"
           >Get Tickets</a
         >
+        <span class="event-tickets event-tickets--soldout" aria-disabled="true">Sold out</span>
         <p class="event-doors">Doors @ [7:30]</p>
 
         <!-- On mobile this group pins to the bottom as a card (see event.css). -->
         <div class="event-signup-card">
-          <p class="event-signup-prompt">Can't make it? Sign up for the next one <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
+          <p class="event-signup-prompt event-signup-prompt--live">Can't make it? Sign up for the next one <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
+          <p class="event-signup-prompt event-signup-prompt--soldout">Missed it? Drop your email and I'll let you know about the next one <svg class="event-signup-arrow" width="16" height="16" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><polygon points="283.7,298.7 283.7,0 198.3,0 198.3,298.7 70.3,298.7 241,512 411.7,298.7" /></svg></p>
 
           <!--
             Posts to Kit (form 9759877) via /event.js. To also capture city, add a
