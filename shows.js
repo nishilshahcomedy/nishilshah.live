@@ -44,5 +44,7 @@ window.SHOWS = [
   { date: "2026-09-15", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-09-17", venue: "Comic Strip Live", city: "New York, NY", url: "https://www.eventbrite.com/e/the-andy-engel-show-tickets-1998677825178?aff=oddtdtcreator&keep_tld=true" },
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
+  { date: "2026-10-06", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
+  { date: "2026-10-09", venue: "The PIT", city: "New York, NY", url: "https://thepit-nyc.com/events/obi-comedy-hour/" },
   { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "Brooklyn, NY", url: "/on-oct-25", mine: true, featured: true },
 ];
