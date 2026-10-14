@@ -46,5 +46,7 @@ window.SHOWS = [
   { date: "2026-09-26", venue: "Flavor Cult", city: "Pond Eddy, NY", note: "$10 in person" },
   { date: "2026-10-06", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
   { date: "2026-10-09", venue: "The PIT", city: "New York, NY", url: "https://thepit-nyc.com/events/obi-comedy-hour/" },
+  { date: "2026-10-13", venue: "St. Marks Comedy Club (Gong Show)", city: "New York, NY" },
+  { date: "2026-10-15", venue: "Flop House Comedy Club", city: "New York, NY", url: "https://flophousecomedy.com/d2a2a158-e9fa-4b6e-af68-a8bd9b57a375/event/910e4ea3-0ca2-44f4-b2ef-1a2025b3fee2" },
   { date: "2026-10-25", venue: "Nishil Shah + Friends", city: "Brooklyn, NY", url: "/on-oct-25", mine: true, featured: true },
 ];
