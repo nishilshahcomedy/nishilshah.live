@@ -3,3 +3,7 @@
 
 # Local drop zone for sharing files with Claude — never publish these
 temp/
+
+# Ticket buyer exports (emails = personal data). GitHub Pages serves every
+# committed file publicly, so this must NEVER be committed. Local archive only.
+buyer-data/
