@@ -65,6 +65,9 @@
          one show we want traffic on. Deliberately NOT a link to the home page /
          all-shows list. After Oct 25, repoint it or delete the <a> entirely. */
       .subscribe-banner {
+        /* margin:0 — the banner is a <p> between shows, and a paragraph's
+           default margin would push a fixed bar down off the top edge. */
+        margin: 0;
         position: fixed;
         top: 0;
         left: 0;
@@ -84,7 +87,9 @@
         text-decoration: none;
       }
 
-      .subscribe-banner:hover {
+      /* Hover only when the banner is a link — a plain-text banner between
+         shows shouldn't look clickable. */
+      a.subscribe-banner:hover {
         background: #ece2f8;
       }
 
@@ -205,8 +210,9 @@
   </head>
 
   <body>
-    <!-- Points at the Oct 25 show only. After Oct 25, repoint or delete. -->
-    <a class="subscribe-banner" href="../on-oct-25/">Next show: Nishil Shah + Friends · Sun, Oct 25 →</a>
+    <!-- Between shows: plain text, no link. When the next show has a page, turn
+         this back into <a class="subscribe-banner" href="../<slug>/">…</a>. -->
+    <p class="subscribe-banner">Next Show: 2027!</p>
 
     <main class="subscribe">
       <div class="subscribe-intro">

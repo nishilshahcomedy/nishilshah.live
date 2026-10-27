@@ -7,3 +7,7 @@ temp/
 # Ticket buyer exports (emails = personal data). GitHub Pages serves every
 # committed file publicly, so this must NEVER be committed. Local archive only.
 buyer-data/
+
+# Private ops data: show strategy, buyer/attendee data, Kit exports, notes.
+# Same rule as above: never committed to this (public) site repo.
+private/
